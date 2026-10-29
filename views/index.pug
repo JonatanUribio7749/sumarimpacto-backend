@@ -1,0 +1,21 @@
+extends layout
+
+block content
+  .page-heading
+    div
+      p.eyebrow SUMARIMPACTO
+      h1 Proyectos sociales
+      p.description Fondos recibidos, gastos y saldos con trazabilidad.
+    a.button(href="/api/proyectos") Consultar API
+  if proyectos.length
+    section.project-list(aria-label="Proyectos sociales")
+      each proyecto in proyectos
+        article.project
+          div
+            h2= proyecto.nombre
+            p= proyecto.descripcion
+          a.project-link(href=`/api/proyectos/${proyecto.id}`) Ver datos
+  else
+    section.empty-state
+      h2 Todavía no hay proyectos
+      p Los proyectos registrados aparecerán acá.

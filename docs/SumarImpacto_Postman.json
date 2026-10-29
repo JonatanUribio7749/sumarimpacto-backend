@@ -1,0 +1,192 @@
+{
+  "info": {
+    "_postman_id": "877eba37-a686-46f5-a4cb-11090431eaca",
+    "name": "SumarImpacto API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "1. Crear organización",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:3001/api/organizaciones"
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"nombre\": \"Organización comunitaria\",\n  \"descripcion\": \"Ayuda social\",\n  \"contacto\": \"contacto@example.org\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "2. Crear donante",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:3001/api/donantes"
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"nombre\": \"Donante de prueba\",\n  \"email\": \"donante@example.org\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "3. Crear proyecto; pegar ObjectId de organización",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:3001/api/proyectos"
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"nombre\": \"Huerta comunitaria\",\n  \"descripcion\": \"Producción local de alimentos\",\n  \"organizacion_id\": \"PEGAR_OBJECTID_ORGANIZACION\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "4. Registrar donación; pegar ObjectId de donante y proyecto",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:3001/api/donaciones"
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"donante_id\": \"PEGAR_OBJECTID_DONANTE\",\n  \"proyecto_id\": \"PEGAR_OBJECTID_PROYECTO\",\n  \"monto\": 50\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "5. Gasto válido; pegar ObjectId de proyecto",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:3001/api/gastos"
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"proyecto_id\": \"PEGAR_OBJECTID_PROYECTO\",\n  \"descripcion\": \"Semillas\",\n  \"monto\": 30\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "6. Gasto excesivo; espera 400",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:3001/api/gastos"
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"proyecto_id\": \"PEGAR_OBJECTID_PROYECTO\",\n  \"descripcion\": \"Gasto fuera de saldo\",\n  \"monto\": 25\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "7. Consultar saldo",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3001/api/proyectos/PEGAR_OBJECTID_PROYECTO/saldo"
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "8. Listar donaciones",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3001/api/proyectos/PEGAR_OBJECTID_PROYECTO/donaciones"
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "9. Listar gastos",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3001/api/proyectos/PEGAR_OBJECTID_PROYECTO/gastos"
+        }
+      },
+      "response": []
+    }
+  ]
+}

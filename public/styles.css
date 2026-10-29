@@ -1,0 +1,149 @@
+:root {
+  color-scheme: light;
+  --ink: #193129;
+  --muted: #66736d;
+  --line: #dce5dc;
+  --green: #28734f;
+  --paper: #f4f7f2;
+  --white: #fff;
+  font-family: "Segoe UI", "Trebuchet MS", sans-serif;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  min-height: 100vh;
+  margin: 0;
+  color: var(--ink);
+  background: linear-gradient(135deg, #f3f7f1, #e8f0e9);
+}
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 66px;
+  padding: 0 max(22px, calc((100vw - 1080px) / 2));
+  background: var(--white);
+  border-bottom: 1px solid var(--line);
+}
+.brand {
+  color: var(--green);
+  font-size: 18px;
+  font-weight: 800;
+  text-decoration: none;
+}
+nav {
+  display: flex;
+  gap: 22px;
+}
+nav a,
+.project-link {
+  color: var(--green);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 650;
+}
+nav a:hover,
+.project-link:hover {
+  text-decoration: underline;
+}
+.container {
+  width: min(1080px, calc(100% - 44px));
+  margin: 0 auto;
+}
+.page-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 20px;
+  padding: 52px 0 28px;
+}
+.eyebrow {
+  margin: 0 0 7px;
+  color: var(--green);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+h1 {
+  margin: 0 0 8px;
+  font-size: 36px;
+  line-height: 1.1;
+}
+.description {
+  margin: 0;
+  color: var(--muted);
+}
+.button {
+  display: inline-flex;
+  padding: 10px 14px;
+  border: 1px solid var(--green);
+  border-radius: 5px;
+  color: var(--green);
+  background: var(--white);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 700;
+}
+.button:hover {
+  color: var(--white);
+  background: var(--green);
+}
+.project-list {
+  display: grid;
+  gap: 10px;
+}
+.project {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 20px;
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--green);
+  background: var(--white);
+}
+.project h2,
+.empty-state h2 {
+  margin: 0 0 6px;
+  font-size: 18px;
+}
+.project p,
+.empty-state p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+}
+.empty-state {
+  padding: 36px 22px;
+  border: 1px solid var(--line);
+  background: var(--white);
+}
+.footer {
+  padding: 24px 0;
+  color: var(--muted);
+  font-size: 12px;
+}
+@media (max-width: 600px) {
+  .topbar {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 12px;
+    padding: 14px 22px;
+  }
+  nav {
+    gap: 16px;
+  }
+  .page-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    padding-top: 34px;
+  }
+  h1 {
+    font-size: 30px;
+  }
+  .project {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}

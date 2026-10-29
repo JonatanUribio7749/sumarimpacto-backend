@@ -1,0 +1,26 @@
+{
+  "name": "sumar-impacto",
+  "version": "1.1.0",
+  "private": true,
+  "type": "commonjs",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js",
+    "test": "node --test tests/*.test.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "dotenv": "^16.6.1",
+    "express": "^5.2.1",
+    "mongoose": "^8.19.1",
+    "pug": "^3.0.4"
+  },
+  "devDependencies": {
+    "mongodb-memory-server": "^10.2.3",
+    "nodemon": "^3.1.14",
+    "supertest": "^7.1.4"
+  }
+}
